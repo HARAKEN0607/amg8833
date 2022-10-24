@@ -20,3 +20,5 @@ fig = plt.imshow(sensor.pixels, cmap="inferno")
 plt.colorbar()
 
 plt.show()
+
+fig.savefig("img.png")
