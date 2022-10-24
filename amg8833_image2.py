@@ -21,4 +21,4 @@ plt.colorbar()
 
 plt.show()
 
-fig.savefig("img.png")
+plt.savefig("img.png")
