@@ -1,11 +1,21 @@
-list = [[20, 30, 40, 50], [15, 25, 35, 45]]
+from PIL import Image, ImageFont, ImageDraw
+import os
 
-for n in range(0, 2, 1):
-    temp_arrange = list[n]
+folderpath = os.getcwd()
 
-    for d in range(0, 4, 1):
-        temp = temp_arrange[d]
-        if temp > 30:
-            print("異常温度を検知しました。  検知温度：" + str(temp) + '℃')
+image_path = folderpath + '/img.png'
+# font_path = '/System/Library/Fonts/ヒラギノ角ゴシック W5.ttc';
+# font_size = 30  # 文字の大きさ
+# text = '異常検知'
+# color = (255, 255, 255)  # 文字の色
+
+image = Image.open(image_path)
+# font = ImageFont.truetype(font_path, font_size)  # フォントの指定
+# draw = ImageDraw.Draw(image)
+# draw.text((110, 20), text, font=font, fill=color)
+# image.save(image_path)
+
+
+
 
 
