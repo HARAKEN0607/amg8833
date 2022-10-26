@@ -12,7 +12,7 @@ d = ImageDraw.Draw(img)
 
 d.text((5, 5), '異常温度検知', fill='red')
 
-img.save("Processing_image.png")
+img.save(folderpath + "/Processing_image.png")
 
 
 
