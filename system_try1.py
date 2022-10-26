@@ -12,7 +12,7 @@ d = ImageDraw.Draw(img)
 
 d.text((10, 10), '異常温度検知', fill='red')
 
-plt.savefig("Processing_image.png")
+img.save("Processing_image.png")
 
 
 
