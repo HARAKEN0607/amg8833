@@ -1,17 +1,18 @@
 from PIL import Image, ImageFont, ImageDraw
 import os
+import matplotlib.pyplot as plt
 
 folderpath = os.getcwd()
 
 image_path = folderpath + '/img.png'
 
-image = Image.open(image_path)
+img = Image.open(image_path)
 
-width = image.width
-height = image.height
+d = ImageDraw.Draw(img)
 
-print("画像の高さは ", height)
-print("画像の幅は ", width)
+d.text((25, 160), '異常温度検知', fill='red')
+
+plt.savefig("Processing_image.png")
 
 
 
