@@ -9,8 +9,9 @@ img = Image.open(image_path)
 
 d = ImageDraw.Draw(img)
 
-# d.text((200, 200), '異常温度検知', fill='blue')
-d.point([(50, 50), (150, 150)], fill='blue')
+d.text((200, 200), 'Test Message\nExample', fill='blue', spacing=10, align='right')
+
+# d.line([(0, 50), (200, 50), (0, 150), (200, 150)], fill='blue', width=2)
 
 img.save(folderpath + "/Processing_image.png")
 
