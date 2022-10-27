@@ -3,13 +3,14 @@ import os
 import time
 import busio
 import board
+import matplotlib.pyplot as plt
 
 import adafruit_amg88xx
 
 folderpath = os.getcwd()
 
 
-def get_temp_data():
+def get_original_data():
     # I2Cの初期化
     i2c = busio.I2C(board.SCL, board.SDA)
     # サーモセンサーの初期化
@@ -21,8 +22,15 @@ def get_temp_data():
     # 8x8の温度配列
     print(sensor.pixels)
 
+    # imshowでsensor.pixelsの２次元配列データを表示させる
+    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic")
+    plt.colorbar()
+
+    plt.savefig("original_image.png")
+
+
 def trimming(left, upper, right, lower):  # trimming photo
-    image_path = folderpath + '/img.png'
+    image_path = folderpath + '/original_image.png'
     img = Image.open(image_path)
 
     im_crop = img.crop((left, upper, right, lower))
@@ -30,4 +38,4 @@ def trimming(left, upper, right, lower):  # trimming photo
 
 trimming(108, 58, 478, 428)
 
-get_temp_data()
+get_original_data()
