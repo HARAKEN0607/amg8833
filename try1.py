@@ -3,7 +3,7 @@ import os
 
 folderpath = os.getcwd()
 
-image_path = folderpath + '/Trimming_img.png'
+image_path = folderpath + '/Trimming_image.png'
 
 img = Image.open(image_path)
 
