@@ -36,6 +36,7 @@ def trimming(left, upper, right, lower):  # trimming photo
     im_crop = img.crop((left, upper, right, lower))
     im_crop.save(folderpath + "/Trimming_image.png", quality=95)
 
-trimming(108, 58, 478, 428)
 
 get_original_data()
+
+trimming(108, 58, 478, 428)
