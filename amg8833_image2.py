@@ -16,6 +16,8 @@ sensor = adafruit_amg88xx.AMG88XX(i2c_bus, addr=0x68)
 time.sleep(.1)
 
 # imshowでsensor.pixelsの２次元配列データを表示させる
+plt.axes.xaxis.set_visible(False)
+plt.axes.yaxis.set_visible(False)
 fig = plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic")
 plt.colorbar()
 
