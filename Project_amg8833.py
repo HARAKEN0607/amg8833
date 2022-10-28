@@ -63,7 +63,11 @@ def draw_txt():
     for n in range(0, len(y), 1):
         x_point = 106 + 23 * (2 * x[n] - 1)
         y_point = 45 + 23 * (2 * y[n] - 1)
-        d.text((x_point, y_point), '45', fill='blue', spacing=10, align='right')
+
+        line_number = y[n]
+        column_number = x[n]
+
+        d.text((x_point, y_point), str(list[line_number][column_number]), fill='blue', spacing=10, align='right')
 
     for n in range(0, len(y), 1):
         x1_point = 106 + 46 * (x[n] - 1)
