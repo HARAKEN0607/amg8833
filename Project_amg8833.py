@@ -79,9 +79,7 @@ def draw_txt():
 
 list = get_original_data()
 
-print(list)
-
-# draw_txt()
+draw_txt()
 
 
 
