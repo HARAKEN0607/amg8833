@@ -47,7 +47,7 @@ def get_original_data():
     plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=temp_min, vmax=temp_max)
 
     # set color bar
-    plt.colorbar(extend='both')
+    plt.colorbar(extend='max')
 
     # original_photo saving
     plt.savefig("original_image.png")
