@@ -56,7 +56,7 @@ def draw_txt():
 
         for m in range(0, 8, 1):
             temp = temp_arrange[m]
-            if temp > 24:
+            if temp > 23:
                 x.append(m + 1)
                 y.append(n + 1)
 
