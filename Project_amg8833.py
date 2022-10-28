@@ -9,8 +9,10 @@ import adafruit_amg88xx
 
 folderpath = os.getcwd()
 
+abn_temp = 23
 
-def get_original_data():
+
+def get_original_data(abn_temp):
     # I2Cの初期化
     i2c = busio.I2C(board.SCL, board.SDA)
     # サーモセンサーの初期化
@@ -22,10 +24,16 @@ def get_original_data():
     # 8x8の温度配列
     datalist = sensor.pixels
 
+    temp_max = max(datalist)
+    temp_min = min(datalist)
+
+    print(temp_max)
+
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
     plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic")
     plt.colorbar()
+
 
     # original_photo saving
     plt.savefig("original_image.png")
@@ -64,6 +72,8 @@ def draw_txt(abn_temp):  # drawing circle and temp data
                 y.append(n + 1)
                 temp_list.append(temp) # abnormal temp data
 
+    temp_max = max(temp_list)
+
     # writing temp data
     for n in range(0, len(y), 1):
         x_point = 106 + 23 * (2 * x[n] - 1)
@@ -84,9 +94,10 @@ def draw_txt(abn_temp):  # drawing circle and temp data
     img.save(folderpath + "/Processing_image.png")
 
 
-list = get_original_data()
 
-draw_txt(23)
+list = get_original_data(abn_temp)
+
+draw_txt(abn_temp)
 
 
 
