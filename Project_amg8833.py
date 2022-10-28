@@ -24,10 +24,14 @@ def get_original_data(abn_temp):
     # 8x8の温度配列
     datalist = sensor.pixels
 
-    temp_max = max(datalist)
-    temp_min = min(datalist)
+    temp_max_arrange = max(datalist)
+    temp_min_arrange = min(datalist)
+
+    temp_max = max(temp_max_arrange)
+    temp_min = max(temp_min_arrange)
 
     print(temp_max)
+    print(temp_min)
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
