@@ -22,6 +22,8 @@ def get_original_data():
     # 8x8の温度配列
     datalist = sensor.pixels
 
+    print(datalist)
+
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
     plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic")
@@ -67,7 +69,7 @@ def draw_txt():
         line_number = y[n]
         column_number = x[n]
 
-        print(list[line_number][column_number])
+        # print(list[line_number][column_number])
 
         # d.text((x_point, y_point), list[line_number][column_number], fill='blue', spacing=10, align='right')
 
