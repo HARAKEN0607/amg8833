@@ -1,4 +1,4 @@
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageDraw
 import os
 import time
 import busio
@@ -23,9 +23,11 @@ def get_original_data():
     print(sensor.pixels)
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
+    plt.axis("off")
     plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic")
     plt.colorbar()
 
+    # original_photo saving
     plt.savefig("original_image.png")
 
 
@@ -37,6 +39,46 @@ def trimming(left, upper, right, lower):  # trimming photo
     im_crop.save(folderpath + "/Trimming_image.png", quality=95)
 
 
+def draw_txt():
+    image_path = folderpath + '/original_image.png'
+
+    img = Image.open(image_path)
+
+    d = ImageDraw.Draw(img)
+
+    x = []
+    y = []
+
+    for n in range(0, 8, 1):
+        temp_arrange = list[n]
+
+        for m in range(0, 8, 1):
+            temp = temp_arrange[m]
+            if temp > 24:
+                x.append(m + 1)
+                y.append(n + 1)
+
+    for n in range(0, len(y), 1):
+        x_point = 106 + 23 * (2 * x[n] - 1)
+        y_point = 45 + 23 * (2 * y[n] - 1)
+        print(x_point)
+        print(y_point)
+        d.text((x_point, y_point), '45', fill='blue', spacing=10, align='right')
+
+    for n in range(0, len(y), 1):
+        x1_point = 106 + 46 * (x[n] - 1)
+        y1_point = 45 + 46 * (y[n] - 1)
+        x2_point = 106 + 46 * x[n]
+        y2_point = 45 + 46 * y[n]
+
+        d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
+
+    img.save(folderpath + "/Processing_image.png")
+
 get_original_data()
 
-trimming(108, 58, 478, 428)
+draw_txt()
+
+
+
+
