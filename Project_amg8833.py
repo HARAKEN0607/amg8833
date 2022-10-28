@@ -41,7 +41,7 @@ def trimming(left, upper, right, lower):  # trimming photo
     im_crop.save(folderpath + "/Trimming_image.png", quality=95)
 
 
-def draw_txt():
+def draw_txt(abn_temp):
     image_path = folderpath + '/original_image.png'
 
     img = Image.open(image_path)
@@ -57,12 +57,10 @@ def draw_txt():
 
         for m in range(0, 8, 1):
             temp = temp_arrange[m]
-            if temp > 23:
+            if temp > abn_temp:
                 x.append(m + 1)
                 y.append(n + 1)
                 temp_list.append(temp)
-
-    print(temp_list)
 
     for n in range(0, len(y), 1):
         x_point = 106 + 23 * (2 * x[n] - 1)
@@ -82,7 +80,7 @@ def draw_txt():
 
 list = get_original_data()
 
-draw_txt()
+draw_txt(23)
 
 
 
