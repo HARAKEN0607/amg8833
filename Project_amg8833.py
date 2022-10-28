@@ -20,7 +20,7 @@ def get_original_data():
     time.sleep(1)
 
     # 8x8の温度配列
-    print(sensor.pixels)
+    list = sensor.pixels
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
@@ -29,6 +29,8 @@ def get_original_data():
 
     # original_photo saving
     plt.savefig("original_image.png")
+
+    return list
 
 
 def trimming(left, upper, right, lower):  # trimming photo
