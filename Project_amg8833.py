@@ -67,7 +67,9 @@ def draw_txt():
         line_number = y[n]
         column_number = x[n]
 
-        d.text((x_point, y_point), list[line_number][column_number], fill='blue', spacing=10, align='right')
+        print(list[line_number][column_number])
+
+        # d.text((x_point, y_point), list[line_number][column_number], fill='blue', spacing=10, align='right')
 
     for n in range(0, len(y), 1):
         x1_point = 106 + 46 * (x[n] - 1)
