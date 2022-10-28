@@ -41,9 +41,10 @@ def trimming(left, upper, right, lower):  # trimming photo
     im_crop.save(folderpath + "/Trimming_image.png", quality=95)
 
 
-def draw_txt(abn_temp):
+def draw_txt(abn_temp):  # drawing circle and temp data
     image_path = folderpath + '/original_image.png'
 
+    # reading original data
     img = Image.open(image_path)
 
     d = ImageDraw.Draw(img)
@@ -52,6 +53,7 @@ def draw_txt(abn_temp):
     y = []
     temp_list = []
 
+    # get temp original data
     for n in range(0, 8, 1):
         temp_arrange = list[n]
 
@@ -60,14 +62,16 @@ def draw_txt(abn_temp):
             if temp > abn_temp:
                 x.append(m + 1)
                 y.append(n + 1)
-                temp_list.append(temp)
+                temp_list.append(temp) # abnormal temp data
 
+    # writing temp data
     for n in range(0, len(y), 1):
         x_point = 106 + 23 * (2 * x[n] - 1)
         y_point = 45 + 23 * (2 * y[n] - 1)
 
         d.text((x_point, y_point), str(temp_list[n]), fill='blue', spacing=10, align='right')
 
+    # drawing circle
     for n in range(0, len(y), 1):
         x1_point = 106 + 46 * (x[n] - 1)
         y1_point = 45 + 46 * (y[n] - 1)
@@ -76,7 +80,9 @@ def draw_txt(abn_temp):
 
         d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
 
+    # saving processing photo
     img.save(folderpath + "/Processing_image.png")
+
 
 list = get_original_data()
 
