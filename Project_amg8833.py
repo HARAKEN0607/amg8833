@@ -25,11 +25,19 @@ def get_original_data():
     datalist = sensor.pixels
 
     # get max_temp min_temp
-    temp_max_arrange = max(datalist)
-    temp_min_arrange = min(datalist)
+    for n in range(0, 8, 1):
+        temp_arrange = datalist[n]
+        temp_max_arrange = max(temp_arrange)
+        temp_min_arrange = min(temp_arrange)
 
-    temp_max = max(temp_max_arrange)
-    temp_min = min(temp_min_arrange)
+        for m in range(0, 8, 1):
+            temp_max = max(temp_max_arrange)
+            temp_min = min(temp_min_arrange)
+
+    print(temp_max_arrange)
+    print(temp_min_arrange)
+    print(temp_max)
+    print(temp_min)
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
