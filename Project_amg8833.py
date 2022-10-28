@@ -30,6 +30,9 @@ def get_original_data(abn_temp):
     temp_max = max(temp_max_arrange)
     temp_min = max(temp_min_arrange)
 
+    print(temp_max_arrange)
+    print(temp_min_arrange)
+
     print(temp_max)
     print(temp_min)
 
