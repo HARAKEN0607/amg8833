@@ -37,10 +37,10 @@ def get_original_data():
             temp_max = max(temp_max_arrange)
             temp_min = min(temp_min_arrange)
 
-    print(temp_max_arrange)
-    print(temp_min_arrange)
-    print(temp_max)
-    print(temp_min)
+    # print(temp_max_arrange)
+    # print(temp_min_arrange)
+    # print(temp_max)
+    # print(temp_min)
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
