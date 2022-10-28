@@ -12,7 +12,7 @@ folderpath = os.getcwd()
 abn_temp = 23
 
 
-def get_original_data(abn_temp):
+def get_original_data():
     # I2Cの初期化
     i2c = busio.I2C(board.SCL, board.SDA)
     # サーモセンサーの初期化
@@ -75,8 +75,6 @@ def draw_txt(abn_temp):  # drawing circle and temp data
                 y.append(n + 1)
                 temp_list.append(temp) # abnormal temp data
 
-    temp_max = max(temp_list)
-
     # writing temp data
     for n in range(0, len(y), 1):
         x_point = 106 + 23 * (2 * x[n] - 1)
@@ -97,8 +95,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
     img.save(folderpath + "/Processing_image.png")
 
 
-
-list = get_original_data(abn_temp)
+list = get_original_data()
 
 draw_txt(abn_temp)
 
