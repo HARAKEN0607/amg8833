@@ -108,6 +108,8 @@ def draw_txt(abn_temp):  # drawing circle and temp data
         # saving processing photo
         img.save(folderpath + '/' + dt_now_name + "_Processing_image.png")
 
+        print("異常温度検知あり")
+
     else:
         print("異常温度検知なし")
 
@@ -116,7 +118,7 @@ list = get_original_data(abn_temp)
 
 draw_txt(abn_temp)
 
-print("異常温度検知あり")
+
 
 
 
