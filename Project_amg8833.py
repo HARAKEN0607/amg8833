@@ -11,7 +11,7 @@ import adafruit_amg88xx
 dt_now = datetime.datetime.now()
 dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 folderpath = os.getcwd() + '/' + dt_now_name
-abn_temp = 23
+abn_temp = 21
 
 if not os.path.exists(folderpath):
     os.mkdir(folderpath)
