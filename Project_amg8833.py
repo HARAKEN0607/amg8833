@@ -115,6 +115,8 @@ list = get_original_data()
 
 draw_txt(abn_temp)
 
+print("finish")
+
 
 
 
