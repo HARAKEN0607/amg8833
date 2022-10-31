@@ -55,7 +55,7 @@ def get_original_data():
     plt.colorbar()
 
     # original_photo saving
-    plt.savefig(folderpath + dt_now_name + '_original.png')
+    plt.savefig(folderpath + '/' + dt_now_name + '_original.png')
 
     return datalist
 
