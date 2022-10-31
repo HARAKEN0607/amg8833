@@ -65,46 +65,51 @@ def trimming(left, upper, right, lower):  # trimming photo
 
 
 def draw_txt(abn_temp):  # drawing circle and temp data
-    image_path = folderpath + '/' + dt_now_name + '_original.png'
+    if os.path.exists(folderpath + '/' + dt_now_name + '_original.png'):
 
-    # reading original data
-    img = Image.open(image_path)
+        image_path = folderpath + '/' + dt_now_name + '_original.png'
 
-    d = ImageDraw.Draw(img)
+        # reading original data
+        img = Image.open(image_path)
 
-    x = []
-    y = []
-    temp_list = []
+        d = ImageDraw.Draw(img)
 
-    # get temp original data
-    for n in range(0, 8, 1):
-        temp_arrange = list[n]
+        x = []
+        y = []
+        temp_list = []
 
-        for m in range(0, 8, 1):
-            temp = temp_arrange[m]
-            if temp > abn_temp:
-                x.append(m + 1)
-                y.append(n + 1)
-                temp_list.append(temp) # abnormal temp data
+        # get temp original data
+        for n in range(0, 8, 1):
+            temp_arrange = list[n]
 
-    # writing temp data
-    for n in range(0, len(y), 1):
-        x_point = 106 + 23 * (2 * x[n] - 1)
-        y_point = 45 + 23 * (2 * y[n] - 1)
+            for m in range(0, 8, 1):
+                temp = temp_arrange[m]
+                if temp > abn_temp:
+                    x.append(m + 1)
+                    y.append(n + 1)
+                    temp_list.append(temp) # abnormal temp data
 
-        d.text((x_point, y_point), str(temp_list[n]), fill='blue', spacing=10, align='right')
+        # writing temp data
+        for n in range(0, len(y), 1):
+            x_point = 106 + 23 * (2 * x[n] - 1)
+            y_point = 45 + 23 * (2 * y[n] - 1)
 
-    # drawing circle
-    for n in range(0, len(y), 1):
-        x1_point = 106 + 46 * (x[n] - 1)
-        y1_point = 45 + 46 * (y[n] - 1)
-        x2_point = 106 + 46 * x[n]
-        y2_point = 45 + 46 * y[n]
+            d.text((x_point, y_point), str(temp_list[n]), fill='blue', spacing=10, align='right')
 
-        d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
+        # drawing circle
+        for n in range(0, len(y), 1):
+            x1_point = 106 + 46 * (x[n] - 1)
+            y1_point = 45 + 46 * (y[n] - 1)
+            x2_point = 106 + 46 * x[n]
+            y2_point = 45 + 46 * y[n]
 
-    # saving processing photo
-    img.save(folderpath + '/' + dt_now_name + "_Processing_image.png")
+            d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
+
+        # saving processing photo
+        img.save(folderpath + '/' + dt_now_name + "_Processing_image.png")
+
+    else:
+        print("異常温度検知なし")
 
 
 list = get_original_data(abn_temp)
