@@ -13,9 +13,6 @@ dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 folderpath = os.getcwd() + '/' + dt_now_name
 abn_temp = 40
 
-if not os.path.exists(folderpath):
-    os.mkdir(folderpath)
-
 
 def get_original_data(abn_temp):
     # I2Cの初期化
@@ -51,6 +48,9 @@ def get_original_data(abn_temp):
 
     # original_photo saving
     if temp_max > abn_temp:
+        if not os.path.exists(folderpath):
+            os.mkdir(folderpath)
+
         plt.savefig(folderpath + '/' + dt_now_name + '_original.png')
 
     return datalist
