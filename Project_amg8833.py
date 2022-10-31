@@ -4,12 +4,16 @@ import time
 import busio
 import board
 import matplotlib.pyplot as plt
+import datetime
 
 import adafruit_amg88xx
 
-folderpath = os.getcwd()
-
+dt_now = datetime.datetime.now()
+folderpath = os.getcwd() + '/dt_now/'
 abn_temp = 23
+
+if not os.path.exists(folderpath):
+    os.mkdir(folderpath)
 
 
 def get_original_data():
@@ -50,7 +54,7 @@ def get_original_data():
     plt.colorbar()
 
     # original_photo saving
-    plt.savefig("original_image.png")
+    plt.savefig(folderpath + dt_now + '_original.png')
 
     return datalist
 
@@ -64,7 +68,7 @@ def trimming(left, upper, right, lower):  # trimming photo
 
 
 def draw_txt(abn_temp):  # drawing circle and temp data
-    image_path = folderpath + '/original_image.png'
+    image_path = folderpath + dt_now + '_original.png'
 
     # reading original data
     img = Image.open(image_path)
@@ -103,7 +107,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
         d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
 
     # saving processing photo
-    img.save(folderpath + "/Processing_image.png")
+    img.save(folderpath + dt_now + "/_Processing_image.png")
 
 
 list = get_original_data()
