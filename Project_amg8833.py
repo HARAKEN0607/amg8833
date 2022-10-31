@@ -17,7 +17,7 @@ if not os.path.exists(folderpath):
     os.mkdir(folderpath)
 
 
-def get_original_data():
+def get_original_data(abn_temp):
     # I2Cの初期化
     i2c = busio.I2C(board.SCL, board.SDA)
     # サーモセンサーの初期化
@@ -42,11 +42,6 @@ def get_original_data():
             temp_max = max(temp_max_arrange)
             temp_min = min(temp_min_arrange)
 
-    # print(temp_max_arrange)
-    # print(temp_min_arrange)
-    # print(temp_max)
-    # print(temp_min)
-
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
     plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=temp_min, vmax=temp_max)
@@ -55,7 +50,8 @@ def get_original_data():
     plt.colorbar()
 
     # original_photo saving
-    plt.savefig(folderpath + '/' + dt_now_name + '_original.png')
+    if abn_temp > temp_max:
+        plt.savefig(folderpath + '/' + dt_now_name + '_original.png')
 
     return datalist
 
@@ -111,7 +107,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
     img.save(folderpath + '/' + dt_now_name + "_Processing_image.png")
 
 
-list = get_original_data()
+list = get_original_data(abn_temp)
 
 draw_txt(abn_temp)
 
