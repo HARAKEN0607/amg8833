@@ -116,7 +116,7 @@ list = get_original_data(abn_temp)
 
 draw_txt(abn_temp)
 
-print("finish")
+print("異常温度検知あり")
 
 
 
