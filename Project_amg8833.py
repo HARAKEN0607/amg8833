@@ -26,22 +26,22 @@ def get_original_data(abn_temp):
     # datalist = 8x8の温度配列
     datalist = sensor.pixels
 
-    # get max_temp min_temp
-    temp_max_arrange = []
-    temp_min_arrange = []
-
-    for n in range(0, 8, 1):
-        temp_arrange = datalist[n]
-        temp_max_arrange.append(max(temp_arrange))
-        temp_min_arrange.append(min(temp_arrange))
-
-        for m in range(0, 8, 1):
-            temp_max = max(temp_max_arrange)
-            temp_min = min(temp_min_arrange)
+    # # get max_temp min_temp
+    # temp_max_arrange = []
+    # temp_min_arrange = []
+    #
+    # for n in range(0, 8, 1):
+    #     temp_arrange = datalist[n]
+    #     temp_max_arrange.append(max(temp_arrange))
+    #     temp_min_arrange.append(min(temp_arrange))
+    #
+    #     for m in range(0, 8, 1):
+    #         temp_max = max(temp_max_arrange)
+    #         temp_min = min(temp_min_arrange)
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
-    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=temp_min, vmax=temp_max)
+    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=70, vmax=10)
 
     # set color bar
     plt.colorbar()
