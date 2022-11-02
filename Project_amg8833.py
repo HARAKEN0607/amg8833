@@ -11,7 +11,7 @@ import adafruit_amg88xx
 dt_now = datetime.datetime.now()
 dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 
-folderpath1 = os.getcwd() + '/' + 'thermo_photos' + '/'
+folderpath1 = os.getcwd() + '/' + 'cubic_thermal' + '/'
 folderpath2 = folderpath1 + dt_now_name
 abn_temp = 0
 
