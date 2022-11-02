@@ -10,7 +10,9 @@ import adafruit_amg88xx
 
 dt_now = datetime.datetime.now()
 dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
-folderpath = os.getcwd() + '/' + dt_now_name
+
+folderpath1 = os.getcwd() + '/' + 'thermo_photos' + '/'
+folderpath2 = folderpath1 + dt_now_name
 abn_temp = 0
 
 
@@ -48,10 +50,13 @@ def get_original_data(abn_temp):
 
     # original_photo saving
     if temp_max > abn_temp:
-        if not os.path.exists(folderpath):
-            os.mkdir(folderpath)
+        if not os.path.exists(folderpath1):
+            os.mkdir(folderpath1)
 
-        plt.savefig(folderpath + '/' + dt_now_name + '_original.png')
+        if not os.path.exists(folderpath2):
+            os.mkdir(folderpath2)
+
+        plt.savefig(folderpath2 + '/' + dt_now_name + '_original.png')
 
     return datalist
 
@@ -65,9 +70,9 @@ def trimming(left, upper, right, lower):  # trimming photo
 
 
 def draw_txt(abn_temp):  # drawing circle and temp data
-    if os.path.exists(folderpath + '/' + dt_now_name + '_original.png'):
+    if os.path.exists(folderpath2 + '/' + dt_now_name + '_original.png'):
 
-        image_path = folderpath + '/' + dt_now_name + '_original.png'
+        image_path = folderpath2 + '/' + dt_now_name + '_original.png'
 
         # reading original data
         img = Image.open(image_path)
@@ -106,7 +111,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
             d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
 
         # saving processing photo
-        img.save(folderpath + '/' + dt_now_name + "_Processing_image.png")
+        img.save(folderpath2 + '/' + dt_now_name + "_Processing_image.png")
 
         print("異常温度検知あり")
 
