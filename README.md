@@ -7,6 +7,12 @@
 
 3. Saving Processing photo.
 
+
+# thermistor.py (main)
+
+Activate the thermistor.
+
+
 # amg8833_1.py　(test)
 
 check all temperature datas and print (異常検知)
