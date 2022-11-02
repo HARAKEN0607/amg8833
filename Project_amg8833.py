@@ -13,7 +13,7 @@ dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 
 folderpath1 = os.getcwd() + '/' + 'cubic_thermal' + '/'
 folderpath2 = folderpath1 + dt_now_name
-abn_temp = 0
+abn_temp = 30
 
 
 def get_original_data(abn_temp):
