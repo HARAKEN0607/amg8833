@@ -17,9 +17,8 @@ dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 foldername = 'Distance_Performance_Survey'
 
 folderpath1 = os.getcwd() + '/' + 'cubic_thermal'
-folderpath2 = os.getcwd() + '/' + 'cubic_thermal' + '/' + foldername
-folderpath3 = folderpath1 + '/' + dt_now_name
-
+folderpath2 = folderpath1 + '/' + foldername
+folderpath3 = folderpath2 + '/' + dt_now_name
 
 
 def get_original_data(abn_temp, Vmin, Vmax):
