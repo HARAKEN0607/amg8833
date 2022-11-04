@@ -122,8 +122,6 @@ def draw_txt(abn_temp):  # drawing circle and temp data
         # saving processing photo
         img.save(folderpath3 + '/' + dt_now_name + "_Processing_image.png")
 
-        print("異常温度検知あり")
-
     else:
         print("異常温度検知なし")
 
@@ -140,7 +138,9 @@ while True:
 
     subprocess.run('rclone sync ' + raspi_folder + ' gcs:' + 'smart_security/' + gcs_folder, shell=True)
 
-    print('file_' + dt_now_name + 'saved')
+    print('file_「' + dt_now_name + '」　saved')
+
+    time.sleep(0.5)
 
 
 
