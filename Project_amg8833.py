@@ -8,15 +8,20 @@ import datetime
 
 import adafruit_amg88xx
 
+abn_temp = 0
+Vmin = 10
+Vmax = 50
+
 dt_now = datetime.datetime.now()
 dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
+foldername = Distance_Performance_Survey
 
-folderpath1 = os.getcwd() + '/' + 'cubic_thermal' + '/'
-folderpath2 = folderpath1 + dt_now_name
-abn_temp = 30
+folderpath1 = os.getcwd() + '/' + 'cubic_thermal' + '/' + foldername
+folderpath2 = folderpath1 + '/' + dt_now_name
 
 
-def get_original_data(abn_temp):
+
+def get_original_data(abn_temp, Vmin, Vmax):
     # I2Cの初期化
     i2c = busio.I2C(board.SCL, board.SDA)
     # サーモセンサーの初期化
@@ -43,7 +48,7 @@ def get_original_data(abn_temp):
 
     # imshowでsensor.pixelsの２次元配列データを表示させる
     plt.axis("off")
-    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=70, vmax=10)
+    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=Vmin, vmax=Vmax)
 
     # set color bar
     plt.colorbar()
