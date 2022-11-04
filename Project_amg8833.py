@@ -78,9 +78,9 @@ def trimming(left, upper, right, lower):  # trimming photo
 
 
 def draw_txt(abn_temp):  # drawing circle and temp data
-    if os.path.exists(folderpath2 + '/' + dt_now_name + '_original.png'):
+    if os.path.exists(folderpath3 + '/' + dt_now_name + '_original.png'):
 
-        image_path = folderpath2 + '/' + dt_now_name + '_original.png'
+        image_path = folderpath3 + '/' + dt_now_name + '_original.png'
 
         # reading original data
         img = Image.open(image_path)
