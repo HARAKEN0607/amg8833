@@ -128,7 +128,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
         print("異常温度検知なし")
 
 
-list = get_original_data(abn_temp)
+list = get_original_data(abn_temp, Vmin, Vmax)
 
 draw_txt(abn_temp)
 
