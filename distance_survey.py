@@ -15,7 +15,7 @@ Vmax = 50
 foldername = 'Distance_Performance_Survey'
 
 count = 0
-folderpath1 = 'home/pi/NAS' + '/' + 'cubic_thermal'
+folderpath1 = '/home/pi/NAS' + '/' + 'cubic_thermal'
 folderpath2 = folderpath1 + '/' + foldername
 
 
