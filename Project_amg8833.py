@@ -65,7 +65,7 @@ def get_original_data(abn_temp, Vmin, Vmax):
         if not os.path.exists(folderpath3):
             os.mkdir(folderpath3)
 
-        plt.savefig(folderpath2 + '/' + dt_now_name + '_original.png')
+        plt.savefig(folderpath3 + '/' + dt_now_name + '_original.png')
 
     return datalist
 
