@@ -13,13 +13,10 @@ abn_temp = 0
 Vmin = 10
 Vmax = 50
 
-dt_now = datetime.datetime.now()
-dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
 foldername = 'Distance_Performance_Survey'
 
 folderpath1 = os.getcwd() + '/' + 'cubic_thermal'
 folderpath2 = folderpath1 + '/' + foldername
-folderpath3 = folderpath2 + '/' + dt_now_name
 
 
 def get_original_data(abn_temp, Vmin, Vmax):
@@ -127,6 +124,9 @@ def draw_txt(abn_temp):  # drawing circle and temp data
 
 
 while True:
+    dt_now = datetime.datetime.now()
+    dt_now_name = dt_now.strftime('%Y%m%d%H%M%S')
+    folderpath3 = folderpath2 + '/' + dt_now_name
 
     list = get_original_data(abn_temp, Vmin, Vmax)
 
