@@ -128,17 +128,19 @@ def draw_txt(abn_temp):  # drawing circle and temp data
         print("異常温度検知なし")
 
 
+while True:
+
+    list = get_original_data(abn_temp, Vmin, Vmax)
+
+    draw_txt(abn_temp)
+
+    raspi_folder = os.getcwd() + '/' + 'cubic_thermal' + '/' + foldername
+    gcs_folder = 'cubic_thermal' + '/' + foldername
 
 
-list = get_original_data(abn_temp, Vmin, Vmax)
+    subprocess.run('rclone sync ' + raspi_folder + ' gcs:' + 'smart_security/' + gcs_folder, shell=True)
 
-draw_txt(abn_temp)
-
-raspi_folder = os.getcwd() + '/' + 'cubic_thermal' + '/' + foldername
-gcs_folder = 'cubic_thermal' + '/' + foldername
-
-
-subprocess.run('rclone sync ' + raspi_folder + ' gcs:' + 'smart_security/' + gcs_folder, shell=True)
+    print('file_' + dt_now_name + 'saved')
 
 
 
