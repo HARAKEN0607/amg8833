@@ -121,7 +121,7 @@ while True:
 
     draw_txt(abn_temp)
 
-    raspi_folder = 'home/pi/NAS' + '/' + 'cubic_thermal' + '/' + foldername
+    raspi_folder = '/home/pi/NAS' + '/' + 'cubic_thermal' + '/' + foldername
     gcs_folder = 'cubic_thermal' + '/' + foldername
 
 
