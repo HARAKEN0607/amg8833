@@ -15,7 +15,7 @@ Vmax = 50
 foldername = 'Distance_Performance_Survey'
 
 count = 0
-folderpath1 = os.getcwd() + '/' + 'cubic_thermal'
+folderpath1 = 'home/pi/NAS' + '/' + 'cubic_thermal'
 folderpath2 = folderpath1 + '/' + foldername
 
 
@@ -121,7 +121,7 @@ while True:
 
     draw_txt(abn_temp)
 
-    raspi_folder = os.getcwd() + '/' + 'cubic_thermal' + '/' + foldername
+    raspi_folder = 'home/pi/NAS' + '/' + 'cubic_thermal' + '/' + foldername
     gcs_folder = 'cubic_thermal' + '/' + foldername
 
 
