@@ -138,9 +138,9 @@ while True:
 
     subprocess.run('rclone sync ' + raspi_folder + ' gcs:' + 'smart_security/' + gcs_folder, shell=True)
 
-    print('file_「' + dt_now_name + '」　saved')
+    print('file 「' + dt_now_name + '」　saved')
 
-    time.sleep(0.5)
+    time.sleep(0.3)
 
 
 
