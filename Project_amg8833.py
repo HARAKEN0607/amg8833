@@ -140,7 +140,7 @@ while True:
 
     print('file 「' + dt_now_name + '」　saved')
 
-    time.sleep(0.3)
+    time.sleep(0)
 
 
 
