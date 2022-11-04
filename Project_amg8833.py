@@ -119,7 +119,7 @@ def draw_txt(abn_temp):  # drawing circle and temp data
             d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
 
         # saving processing photo
-        img.save(folderpath2 + '/' + dt_now_name + "_Processing_image.png")
+        img.save(folderpath3 + '/' + dt_now_name + "_Processing_image.png")
 
         print("異常温度検知あり")
 
