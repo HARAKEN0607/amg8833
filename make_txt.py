@@ -2,7 +2,7 @@ from PIL import Image, ImageFont, ImageDraw
 import os
 
 folderpath = os.getcwd()
-image_path = folderpath + '/original_image.png'
+image_path = folderpath + '/data.png'
 img = Image.open(image_path)
 d = ImageDraw.Draw(img)
 
@@ -48,9 +48,10 @@ for n in range(0, len(y), 1):
     x2_point = 108+46*x[n]
     y2_point = 58+46*y[n]
 
-    d.ellipse((x1_point, y1_point, x2_point, y2_point), outline='white')
+    # d.ellipse((x1_point, y1_point, x2_point, y2_point), outline='white')
+    d.rectangle((x1_point, y1_point, x2_point, y2_point), outline='white')
 
-img.save(folderpath + "/Processing_image.png")
+img.save(folderpath + "/Processing_data.png")
 
 
 
