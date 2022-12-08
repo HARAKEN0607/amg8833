@@ -9,4 +9,6 @@ img = Image.open(image_path)
 
 d = ImageDraw.Draw(img)
 
-d.text((x_point, y_point), '45', fill='blue', spacing=10, align='right')
+d.text((50, 50), '45', fill='blue', outline='white', spacing=10, align='right')
+
+img.save(folderpath + "/Processing_image.png")
