@@ -12,3 +12,5 @@ d = ImageDraw.Draw(img)
 d.text((200, 200), '45', fill='white', outline='black', spacing=10, align='right')
 
 img.save(folderpath + "/Processing_image.png")
+
+print('finished')
