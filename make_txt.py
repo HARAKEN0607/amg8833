@@ -38,7 +38,7 @@ for n in range(0, len(y), 1):
     x2_point = 106+46*x[n]
     y2_point = 45+46*y[n]
 
-    d.ellipse((x1_point, y1_point, x2_point, y2_point), outline=(0, 0, 0))
+    d.ellipse((x1_point, y1_point, x2_point, y2_point), fill='white', outline=(0, 0, 0))
 
 img.save(folderpath + "/Processing_image.png")
 
