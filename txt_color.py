@@ -12,8 +12,8 @@ d = ImageDraw.Draw(img)
 # d.text((200, 200), '45', fill='white', outline='blue', spacing=10, align='right')
 # d.rectangle((200, 100, 300, 200), fill='white', outline='blue')
 
-text = "测试文字"
-font = ImageFont.truetype(font="C:/WINDOWS/Fonts/STKAITI.TTF", size=70)
+text = "あいうえお"
+font = ImageFont.truetype(font="C:/WINDOWS/Fonts/Corbel", size=70)
 fill_color = (255, 0, 0)
 stroke_color = (0, 0, 255)
 
